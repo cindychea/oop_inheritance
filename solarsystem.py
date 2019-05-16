@@ -36,10 +36,10 @@ class Body:
 
     
     @classmethod
-    def all(cls, bodies, body_type):
+    def all(cls, bodies):
         select_list = []
         for body in bodies:
-            if isinstance(body, body_type):
+            if isinstance(body, cls):
                 select_list.append(body)
         return select_list
 
@@ -92,4 +92,4 @@ print(System.all_bodies)
 
 print(System.galactic_mass())
 
-print(Body.all(solarsystem.bodies, Star))
+print(Star.all(solarsystem.bodies))
