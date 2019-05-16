@@ -6,8 +6,8 @@ class System:
         self.bodies = []
 
     def add(self, new_body):
-        if new_body in self.bodies:        
-                print("This body already exists")
+        if new_body.name in [body.name for body in solarsystem.bodies]:        
+                print("This body already exists!")
         else:
             self.bodies.append(new_body)
             System.all_bodies.append(new_body)
@@ -79,6 +79,7 @@ solarsystem.add(northstar)
 solarsystem.add(earth)
 solarsystem.add(moon)
 solarsystem.add(moon)
+solarsystem.add(earth)
 
 print(solarsystem.total_mass())
 
@@ -93,3 +94,8 @@ print(System.all_bodies)
 print(System.galactic_mass())
 
 print(Star.all(solarsystem.bodies))
+
+body_names = [body.name for body in solarsystem.bodies]
+# [body.name for body in solarsystem.bodies]
+# Basically a way to iterate over the list ans just get a list of the names
+print(body_names)
